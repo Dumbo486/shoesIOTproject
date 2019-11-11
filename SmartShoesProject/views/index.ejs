@@ -1,0 +1,97 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <meta charset="utf-8">
+        <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Nanum+Myeongjo|Nanum+Pen+Script&display=swap" rel="stylesheet">
+        <title>DDOBAGI</title>
+        <style>
+          #body{
+            margin: 20px;
+          }
+          #title{
+            text-align: center;
+          }
+          #out{
+            text-align: center;
+          }
+          #in{
+            display: inline-block;
+            width: 35%
+          }
+          
+          #font1{
+            font-family: 'Nanum Myeongjo', serif;
+          }
+          #font2{
+            font-family: 'Do Hyeon', sans-serif;
+          }
+          #font3{
+            font-family: 'Nanum Pen Script', cursive;
+          }
+          #name{
+            text-align: center;
+            font-size: 20px;
+            margin-top: 40px;
+            margin-bottom: 20PX;
+            font-family: 'Do Hyeon', sans-serif;
+          }
+          input[type=text] {
+            border: 2px solid #d4d4d4;
+            text-align: center;
+            font-size: 20px;
+            /* width: 50%; */
+            min-width: 200px;
+            padding:20px;
+            margin-top: 20px;
+            margin: 40px;
+            box-sizing: border-box;
+          }
+          input[type=submit] {
+            background-color: #83a2da;
+            border: none;
+            border-radius: 15px;
+            font-size: 20px;
+            color: white;
+            /* width: 25%; */
+            min-width: 200px;
+            padding:20px;
+            margin: 40px;
+            margin-top: 20px;
+            text-align: center;
+            /* box-sizing: border-box; */
+          }
+          button{
+            background-color: #f78aad;
+            border: none;
+            border-radius: 15px;
+            font-size: 20px;
+            color:white;
+            text-align: center;
+            min-width: 200px;
+            padding:20px;
+            /* box-sizing: border-box; */
+          }
+        </style> 
+          
+        <div id=title>
+            <img src="/images/dbgtitle.png" width = 600>
+        </div>
+    </head> 
+    <body id=body> 
+        <div id= out>
+          <div id=in>
+              <fieldset style="border: 0;"> 
+                  <form action="/" method="post"> 
+                    <input id='name' name="name" type="text" placeholder="Enter Your Name"> 
+                    <input name="size" type="text" placeholder="Enter Your Size" id= 'font2'> 
+                    <div></div>
+                    <input type="submit" value="submit" id = 'font2'>
+                  </form> 
+                </fieldset> 
+                <button id='font2' onclick="location.href = '/analysis';">Analysis</button>
+          </div>
+         
+        </div> 
+    
+    </body> 
+</html>

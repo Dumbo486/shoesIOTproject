@@ -1,0 +1,174 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <meta charset="utf-8"> 
+        <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Nanum+Myeongjo|Nanum+Pen+Script&display=swap" rel="stylesheet">
+        <title>DDOBAGI</title> 
+        <style>
+            #title{
+            text-align: center;
+            background-color: white;
+            /* width: 60%; */
+            position: sticky;
+            top: 0;
+            }
+            p{
+                text-align: center;
+            }
+            #font1{
+                font-family: 'Do Hyeon', sans-serif;
+            }
+            #resultFSR{
+                font-size: 20px;
+                font-family: 'Do Hyeon', sans-serif;
+                text-align: center;
+            }
+            #out{
+            text-align: center;
+            }
+            #in{
+                display: inline-block;
+            }
+            #personality{
+                font-size: 25px;
+                font-family: 'Do Hyeon', sans-serif;
+                text-align: center;
+            }
+            #celebrity{
+                font-size: 25px;
+                font-family: 'Do Hyeon', sans-serif;
+                text-align: center;
+            }
+            #angle{
+                font-size: 25px;
+                font-family: 'Do Hyeon', sans-serif;
+                text-align: center;
+                margin: 20px;
+            }
+            h3{
+                margin: 0px;
+            }
+            fieldset{
+                border: 0px;
+            }
+            #textCeleb{
+                font-size: 30px;
+            }
+            #fieldCeleb{
+                width: 50%;
+            }
+        </style> 
+    </head> 
+    <body> 
+        <div id=title>
+            <img src="/images/dbgantitle.png" width=600>
+        </div>
+        <table align="center" style="text-align:center; border:none; padding: 20px">
+            <tr>
+                <!-- 왼쪽 -->
+                <td style="background-color:white;">
+                    <%if(resultList[7] == 'n'){%>
+                        <img src="/images/leftfoot.png" width=500%>
+                    <%}%>
+                    <%if(resultList[7] == 'i'){%>
+                        <img src="/images/leftfootin.png" width=500%>
+                    <%}%>
+                    <%if(resultList[7] == 'o'){%>
+                        <img src="/images/leftfootout.png" width=500%>
+                    <%}%>
+                </td>
+
+                <td style="height:500px; width:30%">
+                    <h3>FSR1</h3>
+                    <img src="/images/fsr1.png" width = 250>
+                    <h3>FSR2</h3>
+                    <img src="/images/fsr2.png" width = 250>
+                    <h3>FSR3</h3>
+                    <img src="/images/fsr3.png" width = 250>
+                    <h3>FSR4</h3>
+                    <img src="/images/fsr4.png" width = 250>
+                </td>
+                <!-- 오른쪽 -->
+                <td style="background-color:white; color:white; width:35%">
+                    <%if(resultList[7] == 'n'){%>
+                        <img src="/images/rightfoot.png" width=500%>
+                    <%}%>
+                    <%if(resultList[7] == 'i'){%>
+                        <img src="/images/rightfootin.png" width=500%>
+                    <%}%>
+                    <%if(resultList[7] == 'o'){%>
+                        <img src="/images/rightfootout.png" width=500%>
+                    <%}%>
+                </td>
+            </tr>
+            <tr>
+                <td id='resultFSR' colspan="3" style="background-color:lightblue; border-radius: 100px;">                 
+                    <p><%= resultList[0]%></p>
+                    <p><%= resultList[1]%></p>
+                    <p><%= resultList[2]%></p>
+                    <p><%= resultList[3]%></p>
+                    <p><%= resultList[4] %></p>
+                </td>
+            </tr>
+
+            <!-- <tr>
+                <td id='angle' colspan="3"  style="background-color:#f78aad; border-radius: 100px">
+                    <p><%= resultList[4] %></p>
+                </td>
+                
+            </tr> -->
+            <tr>
+                <td colspan="3"> 
+                    <img src="/images/mbti.png" width=600>
+                </td>
+                
+            </tr>
+            <tr>
+                <td id='personality' colspan="3" style="background-color:lightpink; border-radius: 100px;">
+                    <p style="word-break: keep-all"><%= resultList[5] %></p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" > 
+                    <img src="/images/mbti2.png" width=600>
+                </td>
+            </tr>
+            <tr>
+                <td id='celebrity' colspan="3" style="background-color:#f8dbcc; border-radius: 100px">
+                    <div id= out>
+                        <div id=in>
+                            <%if(resultList[6]==0){%>
+                                <img src="/images/billgates.jpg" width=150 style="border-radius: 20px; margin: 20px">
+                            <%}%>
+                            <%if(resultList[6]==1){%>
+                                <img src="/images/beyonce.jpg" width=150 style="border-radius: 20px; margin: 20px">
+                            <%}%>
+                            <%if(resultList[6]==2){%>
+                                <img src="/images/madonna.jpg" width=150 style="border-radius: 20px; margin: 20px">
+                            <%}%>
+                            <%if(resultList[6]==3){%>
+                                <img src="/images/oprahwinfrey.jpg" width=150 style="border-radius: 20px; margin: 20px">
+                            <%}%>
+                            <p id=textCeleb><%=resultList[9]%></p>
+                        </div>
+                        <div id=in>
+                                <%if(resultList[6]==0){%>
+                                    <img src="/images/kristenstewart.jpg" width=150 style="border-radius: 20px; margin: 20px">
+                                <%}%>
+                                <%if(resultList[6]==1){%>
+                                    <img src="/images/michaeljackson.jpg" width=150 style="border-radius: 20px; margin: 20px">
+                                <%}%>
+                                <%if(resultList[6]==2){%>
+                                    <img src="/images/stevejobs.jpg" width=150 style="border-radius: 20px; margin: 20px">
+                                <%}%>
+                                <%if(resultList[6]==3){%>
+                                    <img src="/images/robertjohndowneyjr.jpg" width=150 style="border-radius: 20px; margin: 20px">
+                                <%}%>
+                            <p id=textCeleb><%=resultList[10]%></p>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </body> 
+</html>
