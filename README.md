@@ -37,7 +37,10 @@ import bluetooth
     temp = sock.recv(256)
     print('recv1')
 ```
-pybluez : https://pybluez.readthedocs.io/en/latest/install.html
+Installing PyBluez using pip
+```
+pip install pybluez
+```
 
 ### 데이터전처리 fft(푸리에변환)
 ```
