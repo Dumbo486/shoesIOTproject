@@ -148,3 +148,5 @@ def makeFFT(fsrList):
 ```
 ## 웹 구동 화면 
 
+![image](https://user-images.githubusercontent.com/48663295/93009404-9a9ea880-f5bb-11ea-869e-34867693c476.png)
+![image](https://user-images.githubusercontent.com/48663295/93009405-9d010280-f5bb-11ea-9d04-b996d52d92cb.png)
