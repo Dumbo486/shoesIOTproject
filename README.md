@@ -37,4 +37,31 @@ import bluetooth
     temp = sock.recv(256)
     print('recv1')
 ```
--> pybluez 라이브러리를 통해 
+pybluez : https://pybluez.readthedocs.io/en/latest/install.html
+
+### 데이터전처리 fft(푸리에변환)
+```
+from scipy.fftpack import fft, ifft
+def makeFFT(fsrList):
+    maxval = fsrList[fsrList.index(max(fsrList))]
+    newFsrlist = []
+    for i in fsrList:
+        try:
+            value = float(i) / maxval
+        except ZeroDivisionError as e:
+            print(e)
+            value = 0
+        # newFsrlist.append(float(i) / maxval)
+        newFsrlist.append(value)
+
+    fourier = fft(newFsrlist)
+
+    freal = []
+    for i in fourier:
+        freal.append(i.real)
+
+    return freal
+
+```
+## 웹 구동 화면 
+
