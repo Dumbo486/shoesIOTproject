@@ -24,6 +24,86 @@
 
 ## 주요 코드
 
+### 자이로센서 2차원 변환을 위한 필터 적용
+```
+void get_calibration_Data ()
+{
+    for (int i = 0; i < sample_num_mdate; i++)
+    {
+        get_one_sample_date_mxyz();
+
+        if (mx_sample[2] >= mx_sample[1])mx_sample[1] = mx_sample[2];
+        if (my_sample[2] >= my_sample[1])my_sample[1] = my_sample[2]; //find max value
+        if (mz_sample[2] >= mz_sample[1])mz_sample[1] = mz_sample[2];
+
+        if (mx_sample[2] <= mx_sample[0])mx_sample[0] = mx_sample[2];
+        if (my_sample[2] <= my_sample[0])my_sample[0] = my_sample[2]; //find min value
+        if (mz_sample[2] <= mz_sample[0])mz_sample[0] = mz_sample[2];
+
+    }
+
+    mx_max = mx_sample[1];
+    my_max = my_sample[1];
+    mz_max = mz_sample[1];
+
+    mx_min = mx_sample[0];
+    my_min = my_sample[0];
+    mz_min = mz_sample[0];
+
+    mx_centre = (mx_max + mx_min) / 2;
+    my_centre = (my_max + my_min) / 2;
+    mz_centre = (mz_max + mz_min) / 2;
+}
+
+void get_one_sample_date_mxyz()
+{
+    getCompass_Data();
+    mx_sample[2] = Mxyz[0];
+    my_sample[2] = Mxyz[1];
+    mz_sample[2] = Mxyz[2];
+}
+
+void getAccel_Data(void)
+{
+    accelgyro.getMotion9(&ax, &ay, &az, &gx, &gy, &gz, &mx, &my, &mz);
+    Axyz[0] = (double) ax / 16384;
+    Axyz[1] = (double) ay / 16384;
+    Axyz[2] = (double) az / 16384;
+}
+
+void getGyro_Data(void)
+{
+    accelgyro.getMotion9(&ax, &ay, &az, &gx, &gy, &gz, &mx, &my, &mz);
+
+    Gxyz[0] = (double) gx * 250 / 32768;
+    Gxyz[1] = (double) gy * 250 / 32768;
+    Gxyz[2] = (double) gz * 250 / 32768;
+}
+
+void getCompass_Data(void)
+{
+    I2C_M.writeByte(MPU9150_RA_MAG_ADDRESS, 0x0A, 0x01); //enable the magnetometer
+    delay(10);
+    I2C_M.readBytes(MPU9150_RA_MAG_ADDRESS, MPU9150_RA_MAG_XOUT_L, 6, buffer_m);
+
+    mx = ((int16_t)(buffer_m[1]) << 8) | buffer_m[0] ;
+    my = ((int16_t)(buffer_m[3]) << 8) | buffer_m[2] ;
+    mz = ((int16_t)(buffer_m[5]) << 8) | buffer_m[4] ;
+
+    Mxyz[0] = (double) mx * 1200 / 4096;
+    Mxyz[1] = (double) my * 1200 / 4096;
+    Mxyz[2] = (double) mz * 1200 / 4096;
+}
+
+void getCompassDate_calibrated ()
+{
+    getCompass_Data();
+    Mxyz[0] = Mxyz[0] - mx_centre;
+    Mxyz[1] = Mxyz[1] - my_centre;
+    Mxyz[2] = Mxyz[2] - mz_centre;
+}
+```
+
 ### 블루투스 모듈과 통신하기
 ```
 import bluetooth
