@@ -3,7 +3,7 @@
 ( 걸음걸이 분석을 통한 자세 셀프 모니터링 도우미 )
 
 
-![스크린샷 2020-09-11 오후 12 07 42](https://user-images.githubusercontent.com/48663295/93008920-8657ad00-f5b5-11ea-9b93-0de8ef066134.png)
+![스크린샷 2020-09-11 오후 12 07 42](https://user-images.githubusercontent.com/48663295/93008920-8657ad00-f5b5-11ea-9b93-0de8ef066134.png){: width="100%" height="100%"}
 
 ## 제작 신발 사진 
 
